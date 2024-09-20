@@ -19,16 +19,16 @@ function loadTasks() {
       });
 
       // Delete listeners 
-      $('.deleteTaskButton').on('click', function() {
+      $("#tasks").on('click', '.deleteTaskButton', function() {
         const taskId = $(this).closest('.task').data('id');
         deleteTask(taskId, 
-          function(response) {
-            console.log('Task deleted successfully:', response);
-            loadTasks(); // Reload tasks after deletion
-          },
-          function(error) {
-            console.error('Error deleting task:', error);
-          }
+            function(response) {
+                console.log('Task deleted successfully:', response);
+                loadTasks(); // Reload tasks after deletion
+            },
+            function(error) {
+                console.error('Error deleting task:', error);
+            }
         );
       });
     },
