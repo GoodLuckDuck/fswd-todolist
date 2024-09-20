@@ -12,27 +12,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  document.getElementById('addTaskButton').addEventListener('click', function() {
-    const taskInput = document.getElementById('taskInput');
-    const taskText = taskInput.value.trim();
-    
-    if (taskText) {
-      const taskDiv = document.createElement('div');
-      taskDiv.className = 'task-item d-flex justify-content-between align-items-center mb-2';
-      taskDiv.innerHTML = `
-        <span>${taskText}</span>
-        <button class="btn btn-danger btn-sm deleteTaskButton">Delete</button>
-      `;
-      
-      document.getElementById('tasks').appendChild(taskDiv);
-      taskInput.value = ''; // Clear input field
-
-      // Add event listener for delete button
-      taskDiv.querySelector('.deleteTaskButton').addEventListener('click', function() {
-        taskDiv.remove(); // Remove the task item
-      });
-    }
-  });
-</script>
